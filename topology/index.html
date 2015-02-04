@@ -1,8 +1,34 @@
 <html>
-    <head>
-        <title> Some links for Topology Mid1 </title>
-    </head>
-    <body>
-    </body>
-</html>
+  <head>
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/jsx">
+     var pages = [{topic: 'Ordered Set', link: 'http://mathworld.wolfram.com/TotallyOrderedSet.html'}, 
+     				{topic: 'Open Set', link: 'http://en.wikipedia.org/wiki/Open_set'},
+     				{topic: 'Limit point', link: 'http://en.wikipedia.org/wiki/Limit_point'},
+     				{topic: 'Axiom of choice' ,link: 'http://mathworld.wolfram.com/AxiomofChoice.html'},
+     				{topic: 'Closure', link : 'http://en.wikipedia.org/wiki/Closure_(topology)'},
+     				{topci: 'Connected Component', link : 'http://mathworld.wolfram.com/ConnectedComponent.html'}];
 
+var App = React.createClass({
+  render: function() {
+    return (
+      <div>
+        {
+          this.props.pages.map(function(page) {
+            return <div><a href={page.link}>{page.topic} </a><br/><br/></div>;
+          })
+        }
+      </div>
+    );
+  }
+});
+
+React.renderComponent(<App pages={pages} />, document.body);
+
+    </script>
+  </body>
+</html>
